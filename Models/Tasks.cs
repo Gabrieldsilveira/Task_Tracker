@@ -8,23 +8,23 @@ namespace Task_Tracker.Models
 {
     public class Tasks
     {
-        public Tasks(int id, string description, string status, DateTime createdAt, DateTime updatedAt)
+        public Tasks(int id, string description, string status, string createdAt)
         {
-            id = Id;
-            description = Description;
-            status = Status;
-            createdAt = CreatedAt;
-            updatedAt = UpdatedAt;
+            Id = id;
+            Description = description;
+            Status = status;
+            CreatedAt = createdAt;
+            UpdatedAt = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
         }
-
         public Tasks()
         {
 
         }
+
         public int Id { get; set; }
         public string Description { get; set; }
         public string Status { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public string CreatedAt { get; set; }
+        public string UpdatedAt { get; set; }
     }
 }

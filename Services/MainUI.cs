@@ -11,14 +11,27 @@ namespace Task_Tracker.Services
     {
         public static void MainUi()
         {
+            DataRepository.LoadTasks();
+
             Console.Clear();
             Console.WriteLine("Bem vindo ao Task Tracker!\nDigite \"help\" para ver os comandos.");
 
-            string userInput = Console.ReadLine().ToLower();
+            string userInput = Console.ReadLine().ToLower();           
+            (string inputHandlerCommand, string inputHandlerInfo) = InputHandler.UserInputHandler(userInput);
             
-            var result = InputHandler.UserInputHandler(userInput);
-            Console.WriteLine(result.command);
-            Console.WriteLine(result.information);
+            switch(inputHandlerCommand)
+            {
+                case "add":
+                    AddService.CallAddFunction(inputHandlerInfo);
+                    break;
+                case "update":
+                    UpdateService.CallUpdateFunction(inputHandlerInfo);
+                    break;
+                default:
+                    Console.Clear();
+                    Console.WriteLine($"ERRO: \"{inputHandlerCommand}\" não foi reconhecido, tente \"help\" para ver todos os comandos.");
+                    break;
+            }
         }
     }
 }
