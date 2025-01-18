@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Task_Tracker.Services;
 
 namespace Task_Tracker.Models
 {
@@ -22,6 +23,7 @@ namespace Task_Tracker.Models
                 if (!string.IsNullOrWhiteSpace(json))
                 {
                     DataRepository.taskList = JsonSerializer.Deserialize<List<Tasks>>(json) ?? new List<Tasks>();
+                    UpdateService.UpdateTaskId();
                 }
                 else
                 {

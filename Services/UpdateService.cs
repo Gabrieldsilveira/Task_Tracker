@@ -42,12 +42,40 @@ namespace Task_Tracker.Services
             {
                 UpdateService.update(updateInputHandler.taskId, updateInputHandler.information);
                 Console.Clear();
-                Console.WriteLine($"Task updated successfully (ID: {updateInputHandler.taskId})");
+                Console.WriteLine($"Task modificada com sucesso (ID: {updateInputHandler.taskId})");
             }
             else
             {
                 Console.Clear();
                 Console.WriteLine("ERRO: É necessário adicionar uma descrição para atualizar.");
+            }
+        }
+
+        public static void UpdateTaskId()
+        {
+            foreach(var task in DataRepository.taskList)
+            {
+                int idToChange = DataRepository.taskList.IndexOf(task);
+                if (idToChange == -1)
+                {
+                    Console.Clear();
+                    Console.WriteLine("ERRO: O programa será reiniciado devido a um problema inesperado.");
+                    MainUI.MainUi();
+                }
+                else
+                {
+                    if (idToChange == 0)
+                    {
+                        task.Id = 1;
+                    }
+                    else
+                    {
+                        task.Id = idToChange + 1;
+                    }
+                    string serialize = JsonSerializer.Serialize(DataRepository.taskList, new JsonSerializerOptions { WriteIndented = true });
+                    string path = "C:\\Program Files (x86)\\Programação\\C#\\Task Tracker\\Task Tracker\\Documents\\TasksJson.json";
+                    File.WriteAllText(path, serialize);
+                }
             }
         }
     }

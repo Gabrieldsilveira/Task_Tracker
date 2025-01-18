@@ -15,6 +15,7 @@ namespace Task_Tracker.Services
 
             Console.Clear();
             Console.WriteLine("Bem vindo ao Task Tracker!\nDigite \"help\" para ver os comandos.");
+            Console.Write("task-cli ");
 
             string userInput = Console.ReadLine().ToLower();           
             (string inputHandlerCommand, string inputHandlerInfo) = InputHandler.UserInputHandler(userInput);
@@ -26,6 +27,12 @@ namespace Task_Tracker.Services
                     break;
                 case "update":
                     UpdateService.CallUpdateFunction(inputHandlerInfo);
+                    break;
+                case "delete":
+                    DeleteService.Delete(inputHandlerInfo);
+                    break;
+                case "mark":
+                    MarkService.Mark(inputHandlerInfo);
                     break;
                 default:
                     Console.Clear();

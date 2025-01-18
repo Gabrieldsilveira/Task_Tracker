@@ -31,7 +31,7 @@ namespace Task_Tracker.Services
             {
                 AddService.Add(information);
                 Console.Clear();
-                Console.WriteLine($"Task added successfully (ID: {DataRepository.taskList.Count})");
+                Console.WriteLine($"Task adicionada com sucesso (ID: {DataRepository.taskList.Count})");
             }
             else
             {
