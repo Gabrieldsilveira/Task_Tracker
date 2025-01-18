@@ -34,6 +34,9 @@ namespace Task_Tracker.Services
                 case "mark":
                     MarkService.Mark(inputHandlerInfo);
                     break;
+                case "list":
+                    ListService.List(inputHandlerInfo);
+                    break;
                 default:
                     Console.Clear();
                     Console.WriteLine($"ERRO: \"{inputHandlerCommand}\" não foi reconhecido, tente \"help\" para ver todos os comandos.");
