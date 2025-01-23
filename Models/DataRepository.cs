@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Task_Tracker.Entity;
 using Task_Tracker.Services;
 
 namespace Task_Tracker.Models

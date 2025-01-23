@@ -14,13 +14,21 @@ namespace Task_Tracker.Services
             DataRepository.LoadTasks();
 
             Console.Clear();
-            Console.WriteLine("Bem vindo ao Task Tracker!\nDigite \"help\" para ver os comandos.");
+            Console.WriteLine("Bem vindo ao Task Tracker!\nDigite \"help\" para ver os comandos.\n" +
+                "Digite \"sair\" para fechar o programa.");
             Console.Write("task-cli ");
 
-            string userInput = Console.ReadLine().ToLower();           
+            string userInput = Console.ReadLine().ToLower();
             (string inputHandlerCommand, string inputHandlerInfo) = InputHandler.UserInputHandler(userInput);
-            
-            switch(inputHandlerCommand)
+
+            if (inputHandlerCommand == "sair")
+            {
+                Console.Clear();
+                Console.WriteLine("Encerrando o programa...");
+                Environment.Exit(0);
+            }
+
+            switch (inputHandlerCommand)
             {
                 case "add":
                     AddService.CallAddFunction(inputHandlerInfo);
@@ -37,11 +45,15 @@ namespace Task_Tracker.Services
                 case "list":
                     ListService.List(inputHandlerInfo);
                     break;
+                case "help":
+                    Help.HelpSystem();
+                    break;
                 default:
                     Console.Clear();
                     Console.WriteLine($"ERRO: \"{inputHandlerCommand}\" não foi reconhecido, tente \"help\" para ver todos os comandos.");
                     break;
             }
         }
+        
     }
 }

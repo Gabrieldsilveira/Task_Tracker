@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task_Tracker.Models
+namespace Task_Tracker.Entity
 {
     public class Tasks
     {

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Task_Tracker.Models;
 using System.Text.Json;
+using Task_Tracker.Entity;
 
 namespace Task_Tracker.Services
 {
