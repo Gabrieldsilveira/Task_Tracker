@@ -1,5 +1,7 @@
 # Task Tracker
 
+https://roadmap.sh/projects/task-tracker
+
 Uma aplicação simples de rastreamento de tarefas via linha de comando, que permite aos usuários gerenciar suas tarefas de forma eficiente. 
 A aplicação armazena as tarefas em um arquivo JSON e oferece suporte para várias ações, como adicionar, atualizar e excluir tarefas, além de acompanhar o status delas (a fazer, em progresso, concluído).
 
@@ -35,3 +37,15 @@ Essas propriedades são armazenadas em um arquivo JSON, e o arquivo é atualizado 
 ## Uso
 
 Para interagir com o rastreador de tarefas, você pode executar a aplicação pela linha de comando e passar os argumentos necessários para cada ação.
+
+## Comandos
+
+**Sempre utilizar os comandos sem aspas/parênteses**
+
+help - informações de como utilizar o programa
+sair - Sair do programa
+add "Sua tarefa aqui"
+update 1(id) "Sua tarefa aqui"
+mark 1(id) "todo"; "done"; "in-progress"
+delete 1(id)
+
